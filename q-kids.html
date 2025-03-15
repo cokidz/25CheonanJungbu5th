@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예수님 가족 이야기 알아보기 😊</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #fffaed;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #ff6f61;
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        .accordion {
+            background-color: #fffacd;
+            border: 2px solid #ffcc80;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        .accordion-header {
+            padding: 15px;
+            cursor: pointer;
+            background-color: #ffd54f;
+            font-weight: bold;
+            color: #d81b60;
+            border-radius: 8px;
+        }
+        .accordion-header:hover {
+            background-color: #ffeb3b;
+        }
+        .accordion-content {
+            display: none;
+            padding: 15px;
+            border-top: 2px solid #ffcc80;
+        }
+        .accordion-content p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+        .toggle-btn {
+            background-color: #64b5f6;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .toggle-btn:hover {
+            background-color: #42a5f5;
+        }
+        .hidden {
+            display: none;
+        }
+        .verse, .application {
+            background-color: #e1f5fe;
+            padding: 10px;
+            margin: 5px 0;
+            border-left: 4px solid #64b5f6;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>예수님 가족 이야기 알아보기 🌟</h1>
+    <p style="text-align: center; color: #555;">궁금한 질문을 클릭하면 재미있는 답을 볼 수 있어! 더 알고 싶으면 버튼도 눌러봐! 😍</p>
+
+    <!-- 질문 1 -->
+    <div class="accordion">
+        <div class="accordion-header">1. 왜 예수님의 아빠 요셉 가족을 이야기할까? 👨‍👦</div>
+        <div class="accordion-content">
+            <p><strong>궁금해요:</strong><br>
+            - 요셉은 예수님의 진짜 아빠가 아닌데 왜 요셉 가족 이야기를 썼을까? 🤔</p>
+            <p><strong>알려줄게요:</strong><br>
+            옛날에 유대 사람들은 아빠를 통해 가족을 알아야 했어. 요셉은 예수님을 아들로 받아들여서 예수님이 다윗 왕의 후손이라는 걸 보여줬지. 다윗 왕은 하나님께서 “너의 후손이 큰 왕이 될 거야!”라고 약속한 사람이야. 그래서 예수님이 정말 특별한 분이라는 걸 알 수 있어! 😊</p>
+            <button class="toggle-btn" onclick="toggleSection('verse1')">성경에서 뭐라고 했는지 볼까? 📖</button>
+            <div id="verse1" class="verse hidden">
+                <p><strong>마태복음 1장 16절:</strong> "요셉은 마리아의 남편이고, 마리아에게서 예수님이 태어났대." 👶</p>
+                <p><strong>마태복음 1장 20절:</strong> "요셉아, 너는 다윗 왕의 후손이야." 👑</p>
+            </div>
+            <button class="toggle-btn" onclick="toggleSection('apply1')">우리도 배울 점이 있대! 💡</button>
+            <div id="apply1" class="application hidden">
+                <p>요셉처럼 하나님 말씀을 잘 들으면 우리도 멋진 일을 할 수 있어! 🙌</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 질문 2 -->
+    <div class="accordion">
+        <div class="accordion-header">2. 왜 예수님 가족에 특별한 여자들도 나와? 👩‍🍼</div>
+        <div class="accordion-content">
+            <p><strong>궁금해요:</strong><br>
+            - 다말, 라합, 룻 같은 여자들이 왜 나와? 🤷‍♀️</p>
+            <p><strong>알려줄게요:</strong><br>
+            이 여자들은 다른 나라 출신이거나 힘든 삶을 살았지만, 하나님께서 그들을 사랑하셨어. 그들을 예수님 가족으로 넣어서 하나님은 모든 사람을 사랑하고, 누구나 예수님 덕분에 행복해질 수 있다는 걸 보여줬지! 💖</p>
+            <button class="toggle-btn" onclick="toggleSection('verse2')">성경에서 뭐라고 했는지 볼까? 📜</button>
+            <div id="verse2" class="verse hidden">
+                <p><strong>마태복음 1장 3절, 5절:</strong> "유다와 다말, 살몬과 라합, 보아스와 룻이 나와." 👨‍👩‍👧</p>
+                <p><strong>창세기 12장 3절:</strong> "모든 사람이 너 때문에 복을 받을 거야." 🌍</p>
+            </div>
+            <button class="toggle-btn" onclick="toggleSection('apply2')">우리도 배울 점이 있대! 🌟</button>
+            <div id="apply2" class="application hidden">
+                <p>우리도 모든 친구들을 사랑하고 도와줘야겠지! 😍</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 질문 3 -->
+    <div class="accordion">
+        <div class="accordion-header">3. 가족 나무를 왜 14명씩 나눴을까? 🌳</div>
+        <div class="accordion-content">
+            <p><strong>궁금해요:</strong><br>
+            - 왜 14명씩 세 번으로 나눠서 썼을까? 🤔</p>
+            <p><strong>알려줄게요:</strong><br>
+            마태는 예수님의 가족 나무를 세 부분으로 나눠서 쉽게 보여줬어. 첫 부분은 아브라함부터 다윗까지, 두 번째는 다윗부터 어려운 시기까지, 세 번째는 그 후에 예수님까지야. 14라는 숫자는 다윗 왕과 관련이 있는데, 하나님께서 오랜 시간 약속을 지키셨다는 걸 보여주는 거야! 🌟</p>
+            <button class="toggle-btn" onclick="toggleSection('verse3')">성경에서 뭐라고 했는지 볼까? 📖</button>
+            <div id="verse3" class="verse hidden">
+                <p><strong>마태복음 1장 17절:</strong> "아브라함부터 다윗까지 14명, 그 다음도 14명, 그리고 예수님까지 14명이야." 👨‍👩‍👦</p>
+            </div>
+            <button class="toggle-btn" onclick="toggleSection('apply3')">우리도 배울 점이 있대! 💡</button>
+            <div id="apply3" class="application hidden">
+                <p>하나님은 약속을 꼭 지키셔! 우리도 약속 잘 지켜야겠지? 🤝</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 질문 4 -->
+    <div class="accordion">
+        <div class="accordion-header">4. 마태복음이랑 누가복음이 왜 다를까? 📚</div>
+        <div class="accordion-content">
+            <p><strong>궁금해요:</strong><br>
+            - 마태복음이랑 누가복음에 나오는 예수님 가족이 좀 다르지 않아? 🤔</p>
+            <p><strong>알려줄게요:</strong><br>
+            마태복음은 요셉 아빠의 가족을 통해 예수님이 다윗 왕의 후손이라는 걸 보여줬어. 누가복음은 마리아 엄마 쪽 가족을 이야기하면서 예수님이 모든 사람의 친구라는 걸 알려줬지. 두 이야기가 같이 예수님이 정말 특별한 분이라는 걸 알려주는 거야! 😊</p>
+            <button class="toggle-btn" onclick="toggleSection('verse4')">성경에서 뭐라고 했는지 볼까? 📜</button>
+            <div id="verse4" class="verse hidden">
+                <p><strong>마태복음 1장 1절:</strong> "예수님은 아브라함과 다윗의 후손이야." 👑</p>
+                <p><strong>누가복음 3장 23절:</strong> "예수님은 요셉의 아들로 여겨졌대." 👨‍👦</p>
+            </div>
+            <button class="toggle-btn" onclick="toggleSection('apply4')">우리도 배울 점이 있대! 🌟</button>
+            <div id="apply4" class="application hidden">
+                <p>예수님은 모두를 사랑하셔! 우리도 모든 사람을 사랑해야겠지? 💕</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 질문 5 -->
+    <div class="accordion">
+        <div class="accordion-header">5. 왜 나쁜 일을 한 사람도 가족에 나와? 😮</div>
+        <div class="accordion-content">
+            <p><strong>궁금해요:</strong><br>
+            - 다윗이랑 솔로몬 같은 사람들이 잘못했는데 왜 나와? 🤷‍♂️</p>
+            <p><strong>알려줄게요:</strong><br>
+            다윗이랑 솔로몬은 실수를 했지만 하나님은 그들을 용서하시고 여전히 사랑하셨어. 예수님의 가족에 넣어서 하나님은 우리 모두를 사랑하시고 용서하신다는 걸 보여주셨어. 예수님은 우리를 구해주시려고 오셨어! 😇</p>
+            <button class="toggle-btn" onclick="toggleSection('verse5')">성경에서 뭐라고 했는지 볼까? 📖</button>
+            <div id="verse5" class="verse hidden">
+                <p><strong>마태복음 1장 6절:</strong> "다윗이 솔로몬을 낳았대." 👨‍👦</p>
+                <p><strong>마태복음 9장 13절:</strong> "나는 착한 사람만 부르러 온 게 아니라 잘못한 사람도 구하러 왔어." 🤗</p>
+            </div>
+            <button class="toggle-btn" onclick="toggleSection('apply5')">우리도 배울 점이 있대! 💡</button>
+            <div id="apply5" class="application hidden">
+                <p>우리도 실수할 수 있지만 하나님은 우리를 사랑하셔! 예수님처럼 착하게 살아가자! 😊</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 아코디언 기능
+        const headers = document.querySelectorAll('.accordion-header');
+        headers.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const isOpen = content.style.display === 'block';
+                document.querySelectorAll('.accordion-content').forEach(item => item.style.display = 'none');
+                content.style.display = isOpen ? 'none' : 'block';
+            });
+        });
+
+        // 성경 구절 및 적용 토글 기능
+        function toggleSection(id) {
+            const element = document.getElementById(id);
+            const isHidden = element.classList.contains('hidden');
+            element.classList.toggle('hidden');
+            element.style.display = isHidden ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
