@@ -49,9 +49,27 @@
             transition: background-color 0.3s, transform 0.2s;
         }
 
+        /* 어린이용 링크 버튼 스타일 */
+        .kids-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px 0;
+            background-color: #ff6f61;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
         /* 호버 효과 */
         .link-btn:hover {
             background-color: #357ab8;
+            transform: scale(1.05);
+        }
+
+        .kids-btn:hover {
+            background-color: #e65a50;
             transform: scale(1.05);
         }
 
@@ -60,7 +78,7 @@
             h1 {
                 font-size: 2em;
             }
-            .link-btn {
+            .link-btn, .kids-btn {
                 font-size: 1em;
                 padding: 10px 20px;
             }
@@ -72,6 +90,7 @@
         <h1>예수님 족보</h1>
         <p>예수님의 족보에 대해 더 알아보세요.</p>
         <a href="jesus_genealogy_q.html" class="link-btn">예수님 족보에 대한 질문 보기</a>
+        <a href="q-kids.html" class="kids-btn">어린이용 재미있는 해설 보기</a>
     </div>
 </body>
 </html>
