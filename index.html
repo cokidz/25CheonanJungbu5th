@@ -3,94 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>예수님 족보</title>
+    <title>주일학교 퀴즈 모음</title>
     <style>
-        /* 기본 스타일 초기화 및 배경 설정 */
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* 컨테이너 스타일 */
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f4f8;
             text-align: center;
-            max-width: 500px;
-            width: 90%;
         }
-
-        /* 제목 스타일 */
         h1 {
+            color: #2c3e50;
             font-size: 2.5em;
-            color: #333;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
         }
-
-        /* 링크 버튼 스타일 */
-        .link-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 10px 0;
-            background-color: #4a90e2;
-            color: white;
+        .quiz-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .quiz-item {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .quiz-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        .quiz-item a {
             text-decoration: none;
-            border-radius: 25px;
+            color: #2980b9;
             font-size: 1.2em;
-            transition: background-color 0.3s, transform 0.2s;
+            font-weight: bold;
         }
-
-        /* 어린이용 링크 버튼 스타일 */
-        .kids-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 10px 0;
-            background-color: #ff6f61;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 1.2em;
-            transition: background-color 0.3s, transform 0.2s;
+        .quiz-item a:hover {
+            color: #e74c3c;
         }
-
-        /* 호버 효과 */
-        .link-btn:hover {
-            background-color: #357ab8;
-            transform: scale(1.05);
-        }
-
-        .kids-btn:hover {
-            background-color: #e65a50;
-            transform: scale(1.05);
-        }
-
-        /* 반응형 디자인 */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
-            .link-btn, .kids-btn {
-                font-size: 1em;
-                padding: 10px 20px;
-            }
+        .description {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>예수님 족보</h1>
-        <p>예수님의 족보에 대해 더 알아보세요.</p>
-        <a href="jesus_genealogy_q.html" class="link-btn">예수님 족보에 대한 질문 보기</a>
-        <a href="q-kids.html" class="kids-btn">어린이용 재미있는 해설 보기</a>
+    <h1>주일학교 퀴즈 모음</h1>
+    <div class="quiz-list">
+        <div class="quiz-item">
+            <a href="jesus_genealogy.html">예수님 족보</a>
+            <p class="description">예수님의 족보와 관련된 질문과 어린이용 해설을 확인해보세요!</p>
+        </div>
+        <div class="quiz-item">
+            <a href="quiz1.html">퀴즈 1: 마태복음 2장-3장</a>
+            <p class="description">동방 박사와 예수님의 세례 이야기를 알아봐요!</p>
+        </div>
     </div>
 </body>
 </html>
