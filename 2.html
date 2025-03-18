@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마태복음 2-3장 주일학교 문항</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .question p {
+            color: #34495e;
+            font-size: 1.1em;
+            margin: 0 0 10px;
+        }
+        .toggle-label {
+            color: #2980b9;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 10px 0;
+        }
+        input {
+            padding: 8px;
+            width: 180px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+        .answer {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #e74c3c;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .answer.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .answer p {
+            color: #2c3e50;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>마태복음 2장-3장 주일학교 문항</h1>
+
+    <div class="question">
+        <p>1. 동방 박사들이 예수님께 금, 유향, 몰약을 선물로 드렸어요. 만약 너라면 예수님께 어떤 선물을 드리고 싶고, 그 이유는 뭐야?</p>
+        <p class="toggle-label">예시 답변 보기: 동방 박사들이 드린 선물 중 하나를 입력해봐! (금, 유향, 몰약)</p>
+        <input type="text" id="input1" oninput="checkAnswer(1)">
+        <div id="answer1" class="answer">
+            <p>- "저는 예수님께 맛있는 초콜릿을 드리고 싶어요. 예수님이 사람들을 사랑하셨던 것처럼, 초콜릿을 먹으면 기쁘고 따뜻한 마음이 될 것 같아서요."</p>
+            <p>- "저는 예쁜 꽃을 드리고 싶어요. 예수님이 세상을 아름답게 만드셨으니까, 꽃으로 감사하다고 말하고 싶어요."</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>2. 헤롯 왕은 예수님이 태어났다는 소식을 듣고 무서워했어요. 만약 네가 헤롯 왕이라면 그런 소식을 들었을 때 어떤 선택을 했을 것 같아? 왜 그렇게 생각해?</p>
+        <p class="toggle-label">예시 답변 보기: 헤롯이 무서워했던 아기의 이름을 입력해봐!</p>
+        <input type="text" id="input2" oninput="checkAnswer(2)">
+        <div id="answer2" class="answer">
+            <p>- "저라면 예수님을 찾아가서 같이 친구가 되고 싶었을 거예요. 왕인데 무서워할 필요 없고, 예수님이 좋은 분인 걸 알면 더 잘 지낼 수 있을 것 같아요."</p>
+            <p>- "저는 헤롯처럼 화내지 않고, 동방 박사들한테 더 물어봤을 거예요. 그러면 예수님이 나쁜 사람이 아니라는 걸 알았을 거예요."</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>3. 세례 요한은 광야에서 사람들에게 회개하라고 외쳤어요. 만약 네가 요한처럼 사람들에게 꼭 전하고 싶은 메시지가 있다면 뭐가 될까? 그걸 왜 전하고 싶어?</p>
+        <p class="toggle-label">예시 답변 보기: 요한이 사람들에게 하라고 한 말을 입력해봐!</p>
+        <input type="text" id="input3" oninput="checkAnswer(3)">
+        <div id="answer3" class="answer">
+            <p>- "저는 '서로 사랑하자'고 말하고 싶어요. 요한이 회개하라고 한 것처럼, 사랑하면 잘못한 것도 고칠 수 있고 세상이 더 좋아질 것 같아요."</p>
+            <p>- "저는 '친구들이랑 싸우지 말자'고 하고 싶어요. 싸우면 마음이 아프니까, 다 같이 사이좋게 지내고 싶어요."</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>4. 예수님이 세례를 받으실 때 하늘에서 비둘기와 하나님의 음성이 나타났어요. 만약 네가 그 장면을 직접 봤다면 어떤 질문이 떠올랐을 것 같아? 하나님께 뭐라고 물어보고 싶었을까?</p>
+        <p class="toggle-label">예시 답변 보기: 하늘에서 나타난 새의 이름을 입력해봐!</p>
+        <input type="text" id="input4" oninput="checkAnswer(4)">
+        <div id="answer4" class="answer">
+            <p>- "저는 '하늘이 열리면 어떤 기분이에요?'라고 물어보고 싶어요. 예수님이 세례 받을 때 너무 신기했을 것 같아서요."</p>
+            <p>- "저는 하나님께 '저도 예수님처럼 착하게 살 수 있을까요?'라고 물어보고 싶어요. 그런 목소리를 들으면 힘이 날 것 같아요."</p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(questionNumber) {
+            const answers = {
+                1: ["금", "유향", "몰약"],
+                2: ["예수", "예수님"],
+                3: ["회개"],
+                4: ["비둘기"]
+            };
+            const input = document.getElementById(`input${questionNumber}`).value.trim();
+            const answerDiv = document.getElementById(`answer${questionNumber}`);
+            const correctAnswers = answers[questionNumber];
+
+            if (correctAnswers.some(answer => input.toLowerCase() === answer)) {
+                answerDiv.classList.add("show");
+            } else {
+                answerDiv.classList.remove("show");
+            }
+        }
+    </script>
+</body>
+</html>
