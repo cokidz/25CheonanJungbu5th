@@ -16,13 +16,20 @@
             color: #2d3748;
             font-size: 2.8em;
             margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
         .category {
             margin-bottom: 30px;
         }
-        .category-title.infant { background: linear-gradient(90deg, #f1c40f, #f7e1a1); }
-        .category-title.junior { background: linear-gradient(90deg, #27ae60, #a3e4b6); }
-        .category-title.senior { background: linear-gradient(90deg, #4a90e2, #a1c4fd); }
+        .category-title.infant {
+            background: linear-gradient(90deg, #f1c40f, #f7e1a1);
+        }
+        .category-title.junior {
+            background: linear-gradient(90deg, #27ae60, #a3e4b6);
+        }
+        .category-title.senior {
+            background: linear-gradient(90deg, #4a90e2, #a1c4fd);
+        }
         .category-title {
             color: white;
             padding: 15px 20px;
@@ -45,6 +52,11 @@
             padding: 20px;
             margin-bottom: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .month-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
         .month-title {
             color: #e53e3e;
@@ -53,6 +65,9 @@
             border-bottom: 2px solid #fed7d7;
             padding-bottom: 5px;
             cursor: pointer;
+        }
+        .month-title:hover {
+            color: #c53030;
         }
         .verses {
             display: block;
@@ -67,15 +82,28 @@
             border-radius: 8px;
             border: 2px solid #e2e8f0;
             cursor: pointer;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
             margin-bottom: 10px;
         }
         .verse.selected {
             border-color: #4a90e2;
             box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
         }
-        .verse-text { font-size: 1em; }
-        .verse-ref { display: block; font-size: 0.9em; color: #718096; margin-top: 5px; }
-        .verse-desc { font-size: 0.9em; color: #718096; margin-left: 5px; }
+        .verse-text {
+            font-size: 1em;
+        }
+        .verse-ref {
+            display: block;
+            font-size: 0.9em;
+            color: #718096;
+            margin-top: 5px;
+        }
+        .verse-desc {
+            display: inline;
+            font-size: 0.9em;
+            color: #718096;
+            margin-left: 5px;
+        }
         #print-btn {
             display: block;
             margin: 20px auto;
@@ -85,8 +113,30 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 1.1em;
         }
-        #print-btn:hover { background-color: #2f855a; }
+        #print-btn:hover {
+            background-color: #2f855a;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            .category-title {
+                font-size: 1.2em;
+                padding: 10px 15px;
+            }
+            .month-title {
+                font-size: 1.1em;
+            }
+            .verse {
+                padding: 10px;
+            }
+            #print-btn {
+                font-size: 1em;
+                padding: 8px 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -95,64 +145,24 @@
     <button id="print-btn" onclick="printSelectedVerses()">체크된 구절 인쇄</button>
 
     <script>
-        const verseText = `
-유아부 (6-7세) - 월 4개, 연간 48개
-월별 주제 및 핵심 교리 기반 구절
-1월: 하나님의 본성  
-"하나님은 사랑이시다" (요한일서 4:8) - 하나님의 사랑  
-"주는 나의 목자시니" (시편 23:1) - 하나님의 돌보심  
-"하나님은 선하시다" (시편 100:5) - 하나님의 선하심  
-"주는 영원하시다" (시편 90:2) - 하나님의 영원성
-2월: 창조  
-"하나님이 천지를 창조하시니라" (창세기 1:1) - 창조주 하나님  
-"하나님이 사람을 지으셨다" (창세기 1:27, 일부) - 인간의 존귀함  
-"주는 만물을 만드셨다" (시편 104:24, 일부) - 하나님의 전능  
-"하늘이 주를 찬양하도다" (시편 19:1, 일부) - 창조의 영광
-저학년 (초1-초3) - 월 8개, 연간 96개
-월별 주제 및 핵심 교리 기반 구절
-1월: 하나님의 본성  
-"하나님이 세상을 이처럼 사랑하사" (요한복음 3:16, 일부) - 하나님의 사랑  
-"여호와는 나의 목자시니" (시편 23:1) - 하나님의 돌보심  
-"주는 선하시며 인자하시도다" (시편 100:5) - 하나님의 선하심  
-"주는 영원부터 영원까지 계시다" (시편 90:2) - 하나님의 영원성  
-"하나님은 나의 힘이시라" (시편 46:1) - 하나님의 능력  
-"주는 거룩하시도다" (시편 99:9) - 하나님의 거룩함  
-"하나님은 진리이시니라" (요한복음 17:17, 일부) - 하나님의 진실  
-"주는 나의 피난처시라" (시편 91:2) - 하나님의 보호
-고학년 (초4-초6) - 월 15개, 연간 180개
-월별 주제 및 핵심 교리 기반 구절 (전체)
-1월: 하나님의 본성  
-"하나님이 세상을 이처럼 사랑하사 독생자를 주셨으니" (요한복음 3:16) - 하나님의 사랑  
-"여호와는 나의 목자시니 내게 부족함이 없으리로다" (시편 23:1) - 하나님의 돌보심  
-"주는 선하시며 인자하심이 영원하도다" (시편 100:5) - 하나님의 선하심  
-"주는 영원부터 영원까지 계시는 하나님이시라" (시편 90:2) - 하나님의 영원성  
-"하나님은 우리에게 피난처와 힘이시라" (시편 46:1) - 하나님의 능력  
-"주는 거룩하사 온 땅에 영광을 나타내시도다" (시편 99:9) - 하나님의 거룩함  
-"하나님은 진리이시며 그 말씀도 진리이시니라" (요한복음 17:17, 일부) - 하나님의 진실  
-"주는 나의 피난처요 방패시라 내가 주를 의지하리이다" (시편 91:2) - 하나님의 보호  
-"하나님은 사랑이시라 사랑 안에 거하는 자는 하나님 안에 있나이다" (요한일서 4:16) - 하나님의 본질  
-"주는 전능하시며 하늘과 땅을 지으셨도다" (예레미야 32:17) - 하나님의 전능  
-"하나님은 공의로우사 모든 길을 인도하시도다" (시편 89:14) - 하나님의 공의  
-"주는 자비로우시며 은혜가 풍성하시도다" (시편 145:8) - 하나님의 자비  
-"하나님은 하늘에 계시며 땅을 다스리시도다" (시편 115:3) - 하나님의 주권  
-"주는 나의 기쁨이시요 나의 노래시라" (시편 28:7) - 하나님의 기쁨  
-"하나님은 살아계신 하나님이시며 영원히 찬양받으시리라" (다니엘 6:26) - 하나님의 생존
-        `.trim();
-
+        // 카테고리 접기/펼치기
         function toggleMonths(element) {
             const months = element.nextElementSibling;
             months.style.display = months.style.display === "block" ? "none" : "block";
         }
 
+        // 월별 구절 접기/펼치기
         function toggleVerses(element) {
             const verses = element.nextElementSibling;
             verses.classList.toggle('hidden');
         }
 
+        // 구절 선택 토글
         function toggleSelect(element) {
             element.classList.toggle('selected');
         }
 
+        // 데이터 렌더링 함수
         function renderContent(text) {
             const lines = text.split('\n').map(line => line.trim()).filter(line => line);
             const contentDiv = document.getElementById('content');
@@ -231,6 +241,7 @@
             });
         }
 
+        // 선택된 구절 인쇄
         function printSelectedVerses() {
             const selectedVerses = document.querySelectorAll('.verse.selected');
             if (selectedVerses.length === 0) {
@@ -267,8 +278,16 @@
                 `;
             });
 
-            printContent += `</body></html>`;
+            printContent += `
+                </body>
+                </html>
+            `;
+
             const printWindow = window.open('', '_blank', 'width=600,height=400');
+            if (!printWindow) {
+                alert("팝업 차단을 해제해 주세요!");
+                return;
+            }
             printWindow.document.open();
             printWindow.document.write(printContent);
             printWindow.document.close();
@@ -276,8 +295,23 @@
             setTimeout(() => printWindow.print(), 500);
         }
 
+        // 페이지 로드 시 verses.txt 가져오기
         window.onload = function() {
-            renderContent(verseText);
+            const url = 'https://raw.githubusercontent.com/cokidz/25CheonanJungbu5th/refs/heads/main/verses.txt';
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('파일을 불러오지 못했습니다.');
+                    }
+                    return response.text();
+                })
+                .then(text => {
+                    renderContent(text);
+                })
+                .catch(error => {
+                    console.error('오류:', error);
+                    alert('verses.txt 파일을 불러오는 데 실패했습니다. URL을 확인하세요.');
+                });
         };
     </script>
 </body>
