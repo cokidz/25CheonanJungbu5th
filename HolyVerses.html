@@ -70,9 +70,11 @@
             color: #c53030;
         }
         .verses {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
+            display: block; /* 초기에는 보이게 설정 */
+            transition: all 0.3s ease;
+        }
+        .verses.hidden {
+            display: none; /* 접힐 때 숨김 */
         }
         .verse {
             background-color: #f7fafc;
@@ -81,6 +83,7 @@
             border: 2px solid #e2e8f0;
             cursor: pointer;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 10px;
         }
         .verse.selected {
             border-color: #4a90e2;
@@ -126,9 +129,6 @@
             .month-title {
                 font-size: 1.1em;
             }
-            .verses {
-                grid-template-columns: 1fr;
-            }
             .verse {
                 padding: 10px;
             }
@@ -159,16 +159,9 @@
             element.classList.toggle('selected');
         }
 
-        function selectAllVerses(element) {
-            const verses = element.nextElementSibling.querySelectorAll('.verse');
-            const allSelected = Array.from(verses).every(verse => verse.classList.contains('selected'));
-            verses.forEach(verse => {
-                if (allSelected) {
-                    verse.classList.remove('selected');
-                } else {
-                    verse.classList.add('selected');
-                }
-            });
+        function toggleVerses(element) {
+            const verses = element.nextElementSibling;
+            verses.classList.toggle('hidden');
         }
 
         function loadVersesFromServer() {
@@ -198,7 +191,8 @@
             let currentMonth = null;
             let categoryDiv, monthsDiv, monthDiv, versesDiv;
 
-            lines.forEach(line => {
+            lines.forEach((line, index) => {
+                // 카테고리 인식
                 if (line.match(/^(유아부|저학년|고학년)/)) {
                     currentCategory = line;
                     categoryDiv = document.createElement('div');
@@ -216,7 +210,13 @@
                     categoryDiv.appendChild(monthsDiv);
 
                     contentDiv.appendChild(categoryDiv);
-                } else if (line.match(/^\d+월:/)) {
+                }
+                // 불필요한 줄 건너뛰기
+                else if (line === "월별 주제 및 핵심 교리 기반 구절") {
+                    return;
+                }
+                // 월별 주제 인식
+                else if (line.match(/^\d+월:/) && currentCategory) {
                     currentMonth = line;
                     monthDiv = document.createElement('div');
                     monthDiv.className = 'month-card';
@@ -224,7 +224,7 @@
                     const monthTitle = document.createElement('div');
                     monthTitle.className = 'month-title';
                     monthTitle.textContent = currentMonth;
-                    monthTitle.onclick = function() { selectAllVerses(this); };
+                    monthTitle.onclick = function() { toggleVerses(this); };
                     monthDiv.appendChild(monthTitle);
 
                     versesDiv = document.createElement('div');
@@ -232,7 +232,9 @@
                     monthDiv.appendChild(versesDiv);
 
                     monthsDiv.appendChild(monthDiv);
-                } else if (line.match(/^".*"/)) {
+                }
+                // 구절 인식
+                else if (line.match(/^".*"/) && currentMonth) {
                     const [textPart, desc] = line.split(' - ');
                     let text, ref;
                     const match = textPart.match(/"(.*)" \((.*)\)/);
