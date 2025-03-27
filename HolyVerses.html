@@ -172,8 +172,7 @@
         }
 
         function loadVersesFromServer() {
-            // 실제 서버 URL로 교체해야 함
-            const url = 'https://example.com/verses.txt'; // 여기에 실제 URL 입력
+            const url = 'https://raw.githubusercontent.com/cokidz/25CheonanJungbu5th/refs/heads/main/verses.txt';
             fetch(url)
                 .then(response => {
                     if (!response.ok) {
