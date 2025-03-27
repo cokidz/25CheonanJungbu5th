@@ -70,11 +70,11 @@
             color: #c53030;
         }
         .verses {
-            display: block; /* 초기에는 보이게 설정 */
+            display: block;
             transition: all 0.3s ease;
         }
         .verses.hidden {
-            display: none; /* 접힐 때 숨김 */
+            display: none;
         }
         .verse {
             background-color: #f7fafc;
@@ -145,6 +145,51 @@
     <button id="print-btn" onclick="printSelectedVerses()">체크된 구절 인쇄</button>
 
     <script>
+        // 텍스트 데이터 직접 삽입 (임시로 사용자가 제공한 데이터 사용)
+        const verseText = `
+유아부 (6-7세) - 월 4개, 연간 48개
+월별 주제 및 핵심 교리 기반 구절
+1월: 하나님의 본성  
+"하나님은 사랑이시다" (요한일서 4:8) - 하나님의 사랑  
+"주는 나의 목자시니" (시편 23:1) - 하나님의 돌보심  
+"하나님은 선하시다" (시편 100:5) - 하나님의 선하심  
+"주는 영원하시다" (시편 90:2) - 하나님의 영원성
+2월: 창조  
+"하나님이 천지를 창조하시니라" (창세기 1:1) - 창조주 하나님  
+"하나님이 사람을 지으셨다" (창세기 1:27, 일부) - 인간의 존귀함  
+"주는 만물을 만드셨다" (시편 104:24, 일부) - 하나님의 전능  
+"하늘이 주를 찬양하도다" (시편 19:1, 일부) - 창조의 영광
+저학년 (초1-초3) - 월 8개, 연간 96개
+월별 주제 및 핵심 교리 기반 구절
+1월: 하나님의 본성  
+"하나님이 세상을 이처럼 사랑하사" (요한복음 3:16, 일부) - 하나님의 사랑  
+"여호와는 나의 목자시니" (시편 23:1) - 하나님의 돌보심  
+"주는 선하시며 인자하시도다" (시편 100:5) - 하나님의 선하심  
+"주는 영원부터 영원까지 계시다" (시편 90:2) - 하나님의 영원성  
+"하나님은 나의 힘이시라" (시편 46:1) - 하나님의 능력  
+"주는 거룩하시도다" (시편 99:9) - 하나님의 거룩함  
+"하나님은 진리이시니라" (요한복음 17:17, 일부) - 하나님의 진실  
+"주는 나의 피난처시라" (시편 91:2) - 하나님의 보호
+고학년 (초4-초6) - 월 15개, 연간 180개
+월별 주제 및 핵심 교리 기반 구절 (전체)
+1월: 하나님의 본성  
+"하나님이 세상을 이처럼 사랑하사 독생자를 주셨으니" (요한복음 3:16) - 하나님의 사랑  
+"여호와는 나의 목자시니 내게 부족함이 없으리로다" (시편 23:1) - 하나님의 돌보심  
+"주는 선하시며 인자하심이 영원하도다" (시편 100:5) - 하나님의 선하심  
+"주는 영원부터 영원까지 계시는 하나님이시라" (시편 90:2) - 하나님의 영원성  
+"하나님은 우리에게 피난처와 힘이시라" (시편 46:1) - 하나님의 능력  
+"주는 거룩하사 온 땅에 영광을 나타내시도다" (시편 99:9) - 하나님의 거룩함  
+"하나님은 진리이시며 그 말씀도 진리이시니라" (요한복음 17:17, 일부) - 하나님의 진실  
+"주는 나의 피난처요 방패시라 내가 주를 의지하리이다" (시편 91:2) - 하나님의 보호  
+"하나님은 사랑이시라 사랑 안에 거하는 자는 하나님 안에 있나이다" (요한일서 4:16) - 하나님의 본질  
+"주는 전능하시며 하늘과 땅을 지으셨도다" (예레미야 32:17) - 하나님의 전능  
+"하나님은 공의로우사 모든 길을 인도하시도다" (시편 89:14) - 하나님의 공의  
+"주는 자비로우시며 은혜가 풍성하시도다" (시편 145:8) - 하나님의 자비  
+"하나님은 하늘에 계시며 땅을 다스리시도다" (시편 115:3) - 하나님의 주권  
+"주는 나의 기쁨이시요 나의 노래시라" (시편 28:7) - 하나님의 기쁨  
+"하나님은 살아계신 하나님이시며 영원히 찬양받으시리라" (다니엘 6:26) - 하나님의 생존
+        `.trim();
+
         function toggleMonths(id) {
             const months = document.getElementById(id);
             if (months.style.display === "block") {
@@ -155,31 +200,13 @@
             }
         }
 
-        function toggleSelect(element) {
-            element.classList.toggle('selected');
-        }
-
         function toggleVerses(element) {
             const verses = element.nextElementSibling;
             verses.classList.toggle('hidden');
         }
 
-        function loadVersesFromServer() {
-            const url = 'https://raw.githubusercontent.com/cokidz/25CheonanJungbu5th/refs/heads/main/verses.txt';
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('파일을 불러오지 못했습니다.');
-                    }
-                    return response.text();
-                })
-                .then(text => {
-                    renderContent(text);
-                })
-                .catch(error => {
-                    console.error('오류:', error);
-                    alert('verses.txt 파일을 불러오는 데 실패했습니다. 서버 URL을 확인하세요.');
-                });
+        function toggleSelect(element) {
+            element.classList.toggle('selected');
         }
 
         function renderContent(text) {
@@ -191,7 +218,7 @@
             let currentMonth = null;
             let categoryDiv, monthsDiv, monthDiv, versesDiv;
 
-            lines.forEach((line, index) => {
+            lines.forEach(line => {
                 // 카테고리 인식
                 if (line.match(/^(유아부|저학년|고학년)/)) {
                     currentCategory = line;
@@ -211,8 +238,8 @@
 
                     contentDiv.appendChild(categoryDiv);
                 }
-                // 불필요한 줄 건너뛰기
-                else if (line === "월별 주제 및 핵심 교리 기반 구절") {
+                // 불필요한 줄 무시
+                else if (line === "월별 주제 및 핵심 교리 기반 구절" || line === "월별 주제 및 핵심 교리 기반 구절 (전체)") {
                     return;
                 }
                 // 월별 주제 인식
@@ -236,32 +263,27 @@
                 // 구절 인식
                 else if (line.match(/^".*"/) && currentMonth) {
                     const [textPart, desc] = line.split(' - ');
-                    let text, ref;
                     const match = textPart.match(/"(.*)" \((.*)\)/);
                     if (match) {
-                        [text, ref] = match.slice(1);
-                    } else {
-                        console.error("파싱 오류:", line);
-                        return;
+                        const [text, ref] = match.slice(1);
+                        const verseDiv = document.createElement('div');
+                        verseDiv.className = 'verse';
+                        verseDiv.setAttribute('data-text', `"${text}" (${ref})`);
+                        verseDiv.setAttribute('data-desc', desc);
+                        verseDiv.onclick = function() { toggleSelect(this); };
+
+                        const verseText = document.createElement('span');
+                        verseText.className = 'verse-text';
+                        verseText.textContent = text;
+                        verseDiv.appendChild(verseText);
+
+                        const verseRef = document.createElement('span');
+                        verseRef.className = 'verse-ref';
+                        verseRef.innerHTML = `(${ref}) <span class="verse-desc">${desc}</span>`;
+                        verseDiv.appendChild(verseRef);
+
+                        versesDiv.appendChild(verseDiv);
                     }
-
-                    const verseDiv = document.createElement('div');
-                    verseDiv.className = 'verse';
-                    verseDiv.setAttribute('data-text', `"${text}" (${ref})`);
-                    verseDiv.setAttribute('data-desc', desc);
-                    verseDiv.onclick = function() { toggleSelect(this); };
-
-                    const verseText = document.createElement('span');
-                    verseText.className = 'verse-text';
-                    verseText.textContent = text;
-                    verseDiv.appendChild(verseText);
-
-                    const verseRef = document.createElement('span');
-                    verseRef.className = 'verse-ref';
-                    verseRef.innerHTML = `(${ref}) <span class="verse-desc">${desc}</span>`;
-                    verseDiv.appendChild(verseRef);
-
-                    versesDiv.appendChild(verseDiv);
                 }
             });
         }
@@ -316,14 +338,12 @@
             printWindow.document.write(printContent);
             printWindow.document.close();
             printWindow.focus();
-            setTimeout(() => {
-                printWindow.print();
-            }, 500);
+            setTimeout(() => printWindow.print(), 500);
         }
 
-        // 페이지 로드 시 자동으로 서버에서 데이터 가져오기
+        // 페이지 로드 시 데이터 렌더링
         window.onload = function() {
-            loadVersesFromServer();
+            renderContent(verseText);
         };
     </script>
 </body>
