@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마태복음 5장 주일학교 문항</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .question p {
+            color: #34495e;
+            font-size: 1.1em;
+            margin: 0 0 10px;
+        }
+        .toggle-label {
+            color: #2980b9;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 10px 0;
+        }
+        input {
+            padding: 8px;
+            width: 180px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+        .answer {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #e74c3c;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .answer.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .answer p {
+            color: #2c3e50;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>마태복음 5장 주일학교 문항</h1>
+
+    <div class="question">
+        <p>1. 예수님은 "너희는 세상의 빛이라"고 하시며, 빛이 어둠을 밝히듯 신앙이 세상에 드러나야 한다고 하셨어요. 너의 삶에서 하나님의 영광을 드러내는 빛이 되려면 어떤 마음과 행동이 필요할까?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 5:16 "이같이 너희 빛이 사람 앞에 비치게 하여 그들로 너희 착한 ____을 보고 하늘에 계신 너희 아버지께 영광을 돌리게 하라"에서 빈칸을 채워봐!</p>
+        <input type="text" id="input1" oninput="checkAnswer(1)">
+        <div id="answer1" class="answer">
+            <p>- "겸손한 마음으로 남을 섬기면, 사람들이 내 행동을 통해 하나님의 사랑을 볼 수 있어요."</p>
+            <p>- "말씀을 묵상하고 기도하며 순종할 때, 내 삶이 하나님께 영광을 돌리는 빛이 될 거예요."</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>2. 예수님은 "마음이 청결한 자는 복이 있나니 그들이 하나님을 볼 것임이요"라고 하셨어요. 마음을 청결하게 한다는 건 어떤 의미이고, 우리가 하나님을 보기 위해 어떤 노력을 해야 할까?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 5:8 "____이 청결한 자는 복이 있나니 그들이 하나님을 볼 것임이요"에서 빈칸을 채워봐!</p>
+        <input type="text" id="input2" oninput="checkAnswer(2)">
+        <div id="answer2" class="answer">
+            <p>- "마음이 청결하다는 건 죄를 멀리하고 하나님의 뜻을 따르는 거예요. 회개하고 용서하며 살아야 하나님을 만날 수 있어요."</p>
+            <p>- "세상의 욕심을 버리고 예수님의 마음을 닮으려 노력하면, 하나님의 임재를 경험할 수 있어요."</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>3. 예수님은 율법을 "완전하게 하러 왔다"고 하셨어요. 율법을 완전하게 한다는 건 단순히 규칙을 지키는 것 이상의 의미가 있어요. 예수님의 가르침이 우리의 신앙에 어떤 변화를 주는지 생각해봐!</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 5:17 "내가 율법이나 선지자를 ____하러 온 줄로 생각지 말라"에서 빈칸을 채워봐!</p>
+        <input type="text" id="input3" oninput="checkAnswer(3)">
+        <div id="answer3" class="answer">
+            <p>- "예수님은 율법을 사랑과 순종의 마음으로 채우셨어요. 우리도 규칙이 아니라 하나님을 사랑하는 마음으로 살아야 해요."</p>
+            <p>- "율법을 완전하게 하신 건 우리 마음을 새롭게 하려는 거예요. 예수님을 믿고 성령님의 인도하심을 따라야 변할 수 있어요."</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>4. 예수님은 "너희 원수를 사랑하라"고 하시며, 하나님의 완전하신 사랑을 보여주셨어요. 원수를 사랑하는 것이 왜 하나님의 자녀로서 우리의 소명이고, 이를 실천하려면 어떤 믿음이 필요할까?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 5:44 "내가 너희에게 이르노니 너희 ____을 사랑하라"에서 빈칸을 채워봐!</p>
+        <input type="text" id="input4" oninput="checkAnswer(4)">
+        <div id="answer4" class="answer">
+            <p>- "원수를 사랑하는 건 하나님의 용서와 은혜를 세상에 증거하는 거예요. 예수님이 우리를 위해 십자가에 죽으신 믿음이 필요해요."</p>
+            <p>- "하나님께서 모든 사람을 사랑하신다고 믿고, 기도하며 원수를 위해 축복하면 하나님의 자녀로서 완전함을 추구할 수 있어요."</p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(questionNumber) {
+            const answers = {
+                1: ["행실", "일"], // 마태복음 5:16 "착한 행실"
+                2: ["마음"], // 마태복음 5:8 "마음이 청결한 자"
+                3: ["폐하", "폐하려"], // 마태복음 5:17 "폐하러 온 줄로 생각지 말라"
+                4: ["원수"] // 마태복음 5:44 "너희 원수를 사랑하라"
+            };
+            const input = document.getElementById(`input${questionNumber}`).value.trim();
+            const answerDiv = document.getElementById(`answer${questionNumber}`);
+            const correctAnswers = answers[questionNumber];
+
+            if (correctAnswers.some(answer => input.toLowerCase() === answer)) {
+                answerDiv.classList.add("show");
+            } else {
+                answerDiv.classList.remove("show");
+            }
+        }
+    </script>
+</body>
+</html>
