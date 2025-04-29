@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마태복음 11장 주일학교 문항</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .question p {
+            color: #34495e;
+            font-size: 1.1em;
+            margin: 0 0 10px;
+        }
+        .toggle-label {
+            color: #2980b9;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 10px 0;
+        }
+        input {
+            padding: 8px;
+            width: 180px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+        .answer {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #e74c3c;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .answer.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .answer p {
+            color: #2c3e50;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>마태복음 11장 주일학교 문항</h1>
+
+    <!-- 마태복음 11장 문항 1 -->
+    <div class="question">
+        <p>1. 세례 요한은 감옥에서 예수님의 소식을 듣고 제자들을 보내 예수님이 누구신지 물었어요. 예수님의 대답은 무엇을 보여주나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 11:5 "___이 보고, 저는 자가 걷고"에서 빈칸을 채워봐!</p>
+        <input type="text" id="input1" oninput="checkAnswer(1)">
+        <div id="answer1" class="answer">
+            <p>- "예수님은 하나님의 보내신 메시아로, 병 고침과 복음 전파의 사역을 하셨어요."</p>
+            <p>- "예수님의 기적은 하나님의 나라가 임했음을 보여줘요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 11장 문항 2 -->
+    <div class="question">
+        <p>2. 예수님은 세례 요한을 어떻게 평가하셨어요? 이 말씀은 요한의 역할이 무엇이었음을 보여주나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 11:11 "여자가 낳은 자 중에 세례 요한보다 ___이가 없도다"에서 빈칸을 채워봐!</p>
+        <input type="text" id="input2" oninput="checkAnswer(2)">
+        <div id="answer2" class="answer">
+            <p>- "세례 요한은 예수님의 길을 준비하는 선지자로 큰 역할을 했어요."</p>
+            <p>- "요한은 하나님의 말씀을 전하며 사람들을 회개로 인도했어요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 11장 문항 3 -->
+    <div class="question">
+        <p>3. 예수님은 회개하지 않는 고을들을 책망하셨어요. 이 말씀은 우리에게 어떤 교훈을 주나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 11:20 "그가 거기서 행하신 ___을 보고도 회개하지 아니하므로"에서 빈칸을 채워봐!</p>
+        <input type="text" id="input3" oninput="checkAnswer(3)">
+        <div id="answer3" class="answer">
+            <p>- "하나님의 말씀과 기적을 보고도 회개하지 않으면 심판을 받을 수 있어요."</p>
+            <p>- "우리는 예수님의 말씀에 순종하며 회개하는 삶을 살아야 해요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 11장 문항 4 -->
+    <div class="question">
+        <p>4. 예수님은 지치고 무거운 짐 진 자들에게 평안을 약속하셨어요. 이 말씀은 우리에게 어떤 위로를 주나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 11:28 "수고하고 무거운 짐 진 자들아 다 내게로 ___."에서 빈칸을 채워봐!</p>
+        <input type="text" id="input4" oninput="checkAnswer(4)">
+        <div id="answer4" class="answer">
+            <p>- "예수님은 우리의 모든 짐을 지시고 평안과 안식을 주셨어요."</p>
+            <p>- "우리는 예수님께 나아가 삶의 어려움 속에서 위로를 받아야 해요."</p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(questionNumber) {
+            const answers = {
+                1: ["소경"], // 마태복음 11:5 "소경이 보고"
+                2: ["큰"], // 마태복음 11:11 "세례 요한보다 큰 이가 없도다"
+                3: ["기적","권능"], // 마태복음 11:20 "행하신 기적을 보고도"
+                4: ["오라"] // 마태복음 11:28 "다 내게로 오라"
+            };
+            const input = document.getElementById(`input${questionNumber}`).value.trim();
+            const answerDiv = document.getElementById(`answer${questionNumber}`);
+            const correctAnswers = answers[questionNumber];
+
+            if (correctAnswers.some(answer => input.toLowerCase() === answer)) {
+                answerDiv.classList.add("show");
+            } else {
+                answerDiv.classList.remove("show");
+            }
+        }
+    </script>
+</body>
+</html>
