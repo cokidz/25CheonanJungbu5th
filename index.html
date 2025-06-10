@@ -48,11 +48,42 @@
             font-size: 0.9em;
             margin-top: 5px;
         }
+        .toggle-section {
+            margin: 20px 0;
+        }
+        .toggle-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-button:hover {
+            background-color: #2980b9;
+        }
+        .previous-quizzes {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .previous-quizzes.show {
+            display: flex;
+        }
+        .latest-quiz {
+            border: 2px solid #e74c3c;
+            background-color: #fff5f5;
+        }
     </style>
 </head>
 <body>
     <h1>주일학교 퀴즈 모음</h1>
     <div class="quiz-list">
+        
+        <div class="toggle-section">
+        <button class="toggle-button" onclick="toggleQuizzes()">이전 퀴즈 보기/숨기기</button>    
         <div class="quiz-item">
             <a href="quiz1.html">예수님 족보</a>
             <p class="description">예수님의 족보와 관련된 질문과 어린이용 해설을 확인해보세요!</p>
@@ -105,11 +136,20 @@
             <a href="quiz13.html">퀴즈 12: 마태복음 16장</a>
             <p class="description">베드로의 고백, 예수님의 가르침, 십자가를 지는 삶을 통해 하나님의 뜻을 배워요!</p>
         </div>
+        <div class="previous-quizzes" id="previousQuizzes">
+            
         <div class="quiz-item">
-            <a href="quiz_mat_17.html">퀴즈 17: 마태복음 17장</a>
+            <a href="quiz_mat_17.html">퀴즈 13: 마태복음 17장</a>
             <p class="description">변화 산에서의 영광, 하나님의 음성, 믿음의 중요성을 통해 예수님의 신성과 능력을 배워요!</p>
         </div>
         
     </div>
+<script>
+    function toggleQuizzes() {
+        const previousQuizzes = document.getElementById('previousQuizzes');
+        previousQuizzes.classList.toggle('show');
+    }
+</script>
+            
 </body>
 </html>
