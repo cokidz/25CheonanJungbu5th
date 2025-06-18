@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마태복음 18장 & 19장 주일학교 문항</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .question p {
+            color: #34495e;
+            font-size: 1.1em;
+            margin: 0 0 10px;
+        }
+        .toggle-label {
+            color: #2980b9;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 10px 0;
+        }
+        input {
+            padding: 8px;
+            width: 180px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+        .answer {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #e74c3c;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .answer.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .answer p {
+            color: #2c3e50;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>마태복음 18장 & 19장 주일학교 문항</h1>
+
+    <!-- 마태복음 18장 문항 1 -->
+    <div class="question">
+        <p>1. 예수님께서 천국에서 큰 자가 누구라고 하셨어요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 18:4 "그러므로 누구든지 이 ___와 같이 자기를 낮추는 그이가 천국에서 큰 자니라"</p>
+        <input type="text" id="input1" oninput="checkAnswer(1)">
+        <div id="answer1" class="answer">
+            <p>- "예수님은 어린 아이와 같이 자기를 낮추는 자가 천국에서 크다고 하셨어요."</p>
+            <p>- "겸손한 마음이 하나님께 귀엽게 여겨져요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 18장 문항 2 -->
+    <div class="question">
+        <p>2. 예수님께서 잃은 양 비유에서 어떤 양을 찾으러 가셨다고 하셨어요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 18:12 "어떤 사람이 양 백 마리가 있는데 그 중에 하나가 ___을 잃었으면"</p>
+        <input type="text" id="input2" oninput="checkAnswer(2)">
+        <div id="answer2" class="answer">
+            <p>- "예수님은 길 잃은 양, 즉 죄인을 찾으러 오셨어요."</p>
+            <p>- "하나님은 모든 사람이 구원받기를 원하세요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 18장 문항 3 -->
+    <div class="question">
+        <p>3. 예수님께서 형제가 죄를 지으면 어떻게 하라고 하셨어요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 18:15 "네 형제가 죄를 범하거든 가서 너와 그 사람과만 상대하여 ___하라"</p>
+        <input type="text" id="input3" oninput="checkAnswer(3)">
+        <div id="answer3" class="answer">
+            <p>- "예수님은 형제가 죄를 지으면 단둘이 가서 권고하라고 하셨어요."</p>
+            <p>- "이는 사랑으로 잘못을 바로잡으라는 가르침이에요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 19장 문항 1 -->
+    <div class="question">
+        <p>4. 예수님께서 결혼에 대해 말씀하시며 하나님이 맺어준 것을 무엇이라 하셨어요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 19:6 "이제 둘이 아니요 한 몸이니 그러므로 하나님이 짝지어 주신 것을 사람이 ___ 말지어다"</p>
+        <input type="text" id="input4" oninput="checkAnswer(4)">
+        <div id="answer4" class="answer">
+            <p>- "예수님은 하나님이 맺어준 결혼을 사람이 나누지 말라고 하셨어요."</p>
+            <p>- "결혼은 하나님의 거룩한 계획이에요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 19장 문항 2 -->
+    <div class="question">
+        <p>5. 부자 청년이 예수님께 영생을 얻으려면 무엇을 하라고 들었나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 19:21 "예수께서 가라사대 네가 온전하고자 할진대 가서 네 ___를 팔아 가난한 자들에게 주라. ...중략... 그리고 나서 나를 좇으라 하시니"</p>
+        <input type="text" id="input5" oninput="checkAnswer(5)">
+        <div id="answer5" class="answer">
+            <p>- "예수님은 소유를 팔아 가난한 자에게 주고 자신을 따르라고 하셨어요."</p>
+            <p>- "하나님을 최우선으로 사랑해야 해요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 19장 문항 3 -->
+    <div class="question">
+        <p>6. 예수님께서 천국에 들어가기가 어려운 자를 무엇에 비유하셨어요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 19:24 "다시 너희에게 말하노니 ___가 바늘귀로 들어가는 것이 부자가 하나님의 나라에 들어가는 것보다 쉬우니라"</p>
+        <input type="text" id="input6" oninput="checkAnswer(6)">
+        <div id="answer6" class="answer">
+            <p>- "예수님은 부자가 천국에 들어가기 어려움을 낙타가 바늘귀로 들어가는 것에 비유하셨어요."</p>
+            <p>- "재물보다 하나님을 더 사랑해야 해요."</p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(questionNumber) {
+            const answers = {
+                1: ["어린 아이", "어린아이"],
+                2: ["길"],
+                3: ["권고", "타이름"],
+                4: ["나누지"],
+                5: ["소유"],
+                6: ["낙타","약대"]
+            };
+            const input = document.getElementById(`input${questionNumber}`).value.trim();
+            const answerDiv = document.getElementById(`answer${questionNumber}`);
+            const correctAnswers = answers[questionNumber];
+
+            if (correctAnswers.some(answer => input.toLowerCase() === answer.toLowerCase())) {
+                answerDiv.classList.add("show");
+            } else {
+                answerDiv.classList.remove("show");
+            }
+        }
+    </script>
+</body>
+</html>
