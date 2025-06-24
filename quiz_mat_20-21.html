@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마태복음 20장 & 21장 주일학교 문항</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .question p {
+            color: #34495e;
+            font-size: 1.1em;
+            margin: 0 0 10px;
+        }
+        .toggle-label {
+            color: #2980b9;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 10px 0;
+        }
+        input {
+            padding: 8px;
+            width: 180px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+        .answer {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #e74c3c;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .answer.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .answer p {
+            color: #2c3e50;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>마태복음 20장 & 21장 주일학교 문항</h1>
+
+    <!-- 마태복음 20장 문항 1 -->
+    <div class="question">
+        <p>1. 예수님께서 포도원 품꾼 비유에서 포도원 주인이 품꾼들에게 무엇을 주겠다고 약속하셨어요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 20:2 "저가 하루 ___씩 품군들과 약속하여 포도원에 들여보내고"</p>
+        <input type="text" id="input1" oninput="checkAnswer(1)">
+        <div id="answer1" class="answer">
+            <p>- "포도원 주인은 품꾼들에게 하루에 한 데나리온을 주겠다고 약속하셨어요."</p>
+            <p>- "하나님의 은혜는 공평하게 주어져요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 20장 문항 2 -->
+    <div class="question">
+        <p>2. 예수님께서 제자들에게 섬기는 자가 되려면 어떻게 해야 한다고 하셨어요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 20:26-27 "너희 중에 누구든지 크고자 하는 자는 너희를 ___가 되고"</p>
+        <input type="text" id="input2" oninput="checkAnswer(2)">
+        <div id="answer2" class="answer">
+            <p>- "예수님은 크고자 하는 자는 섬기는 자가 되어야 한다고 하셨어요."</p>
+            <p>- "진정한 리더는 겸손히 다른 사람을 섬겨요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 20장 문항 3 -->
+    <div class="question">
+        <p>3. 예수님께서 자신의 죽으심에 대해 말씀하시며 무엇을 주겠다고 하셨어요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 20:28 "인자가 온 것은 섬김을 받으려 함이 아니요 섬기려 하고 자기 목숨을 많은 사람의 ___로 주려 함이니라"</p>
+        <input type="text" id="input3" oninput="checkAnswer(3)">
+        <div id="answer3" class="answer">
+            <p>- "예수님은 자기 목숨을 많은 사람의 대속물로 주겠다고 하셨어요."</p>
+            <p>- "예수님의 희생은 우리의 죄를 속죄해요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 21장 문항 1 -->
+    <div class="question">
+        <p>4. 예수님께서 예루살렘에 입성하실 때 사람들이 무엇을 외쳤나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 21:9 "무리가 앞뒤에서 따라가며 소리 지르기를 ___ 다윗의 자손이여"</p>
+        <input type="text" id="input4" oninput="checkAnswer(4)">
+        <div id="answer4" class="answer">
+            <p>- "사람들은 '호산나'라고 외쳤어요."</p>
+            <p>- "이는 예수님을 메시아로 환영하는 찬양이었어요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 21장 문항 2 -->
+    <div class="question">
+        <p>5. 예수님께서 무화과나무를 저주하신 이유는 무엇이었나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 21:19 "이에 예수께서 한 무화과나무를 보시고 그 나무에 이르러 잎사귀만 있고 ___가 없는 것을 보시고"</p>
+        <input type="text" id="input5" oninput="checkAnswer(5)">
+        <div id="answer5" class="answer">
+            <p>- "무화과나무에 열매가 없었기 때문에 예수님께서 저주하셨어요."</p>
+            <p>- "이는 겉만 번지르르하고 진정한 믿음이 없는 자를 책망하신 거예요."</p>
+        </div>
+    </div>
+
+    <!-- 마태복음 21장 문항 3 -->
+    <div class="question">
+        <p>6. 포도원 소작인 비유에서 포도원 주인이 아들을 어떻게 하라고 보냈나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 21:37 "후에 자기 아들을 보내어 이르되 내 아들은 ___ 하리라 하였더니"</p>
+        <input type="text" id="input6" oninput="checkAnswer(6)">
+        <div id="answer6" class="answer">
+            <p>- "포도원 주인은 아들을 공경하리라 믿고 보냈어요."</p>
+            <p>- "이는 하나님께서 예수님을 보내셨지만 사람들이 거절한 것을 보여줘요."</p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(questionNumber) {
+            const answers = {
+                1: ["한 데나리온", "데나리온"],
+                2: ["섬기는 자"],
+                3: ["대속물"],
+                4: ["호산나"],
+                5: ["열매"],
+                6: ["공경"]
+            };
+            const input = document.getElementById(`input${questionNumber}`).value.trim();
+            const answerDiv = document.getElementById(`answer${questionNumber}`);
+            const correctAnswers = answers[questionNumber];
+
+            if (correctAnswers.some(answer => input.toLowerCase() === answer.toLowerCase())) {
+                answerDiv.classList.add("show");
+            } else {
+                answerDiv.classList.remove("show");
+            }
+        }
+    </script>
+</body>
+</html>
