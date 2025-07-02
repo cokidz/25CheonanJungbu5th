@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마태복음 22장 주일학교 문항</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .question p {
+            color: #34495e;
+            font-size: 1.1em;
+            margin: 0 0 10px;
+        }
+        .toggle-label {
+            color: #2980b9;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 10px 0;
+        }
+        input {
+            padding: 8px;
+            width: 180px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+        .answer {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #e74c3c;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .answer.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .answer p {
+            color: #2c3e50;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>마태복음 22장 주일학교 문항</h1>
+
+    <!-- 문항 1 -->
+    <div class="question">
+        <p>1. 예수님께서 바리새인들에게 가이사의 것은 가이사에게 돌리라고 하신 말씀은 무엇에 관한 것이었나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 22:21 "그런즉 가이사의 것은 가이사에게, ___ 것은 ___에게 바치라 하시니"</p>
+        <input type="text" id="input1" oninput="checkAnswer(1)">
+        <div id="answer1" class="answer">
+            <p>- "예수님은 하나님의 것은 하나님께 바치라고 하셨어요."</p>
+            <p>- "우리는 세상에서 해야 할 일을 하면서도 하나님께 우리의 마음과 삶을 드려야 해요."</p>
+        </div>
+    </div>
+
+    <!-- 문항 2 -->
+    <div class="question">
+        <p>2. 예수님께서 말씀하신 가장 큰 계명은 무엇이었나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 22:37-38 "예수께서 가라사대 네 마음을 다하고 목숨을 다하고 뜻을 다하여 ___ 너의 하나님을 사랑하라 하시니 이것이 크고 첫째 되는 계명이니라"</p>
+        <input type="text" id="input2" oninput="checkAnswer(2)">
+        <div id="answer2" class="answer">
+            <p>- "가장 큰 계명은 하나님을 전심으로 사랑하는 것이에요."</p>
+            <p>- "하나님을 사랑하면 우리의 모든 행동과 생각이 하나님을 기쁘시게 하려고 노력하게 돼요."</p>
+        </div>
+    </div>
+
+    <!-- 문항 3 -->
+    <div class="question">
+        <p>3. 예수님께서 두 번째로 중요한 계명으로 말씀하신 것은 무엇이었나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 22:39 "둘째는 이와 같으니 네 ___을 네 몸 같이 사랑하라 하셨으니"</p>
+        <input type="text" id="input3" oninput="checkAnswer(3)">
+        <div id="answer3" class="answer">
+            <p>- "예수님은 이웃을 내 몸처럼 사랑하라고 하셨어요."</p>
+            <p>- "이웃을 사랑하는 것은 하나님의 사랑을 세상에 보여주는 방법이에요."</p>
+        </div>
+    </div>
+
+    <!-- 문항 4 -->
+    <div class="question">
+        <p>4. 예수님께서 다윗의 자손인 메시아에 대해 바리새인들에게 물으신 질문은 무엇에 관한 것이었나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 22:45 "다윗이 ___를 주라 칭하였은즉 어찌 그의 자손이 되겠느냐 하시니"</p>
+        <input type="text" id="input4" oninput="checkAnswer(4)">
+        <div id="answer4" class="answer">
+            <p>- "예수님은 메시아가 다윗의 주님이라고 하셨어요."</p>
+            <p>- "이는 예수님이 단순한 사람이 아니라 하나님의 아들이심을 보여줘요. 우리는 예수님을 우리의 주님으로 믿어야 해요."</p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(questionNumber) {
+            const answers = {
+                1: ["하나님"],
+                2: ["주"],
+                3: ["이웃"],
+                4: ["그리스도"]
+            };
+            const input = document.getElementById(`input${questionNumber}`).value.trim();
+            const answerDiv = document.getElementById(`answer${questionNumber}`);
+            const correctAnswers = answers[questionNumber];
+
+            if (correctAnswers.some(answer => input.toLowerCase() === answer.toLowerCase())) {
+                answerDiv.classList.add("show");
+            } else {
+                answerDiv.classList.remove("show");
+            }
+        }
+    </script>
+</body>
+</html>
