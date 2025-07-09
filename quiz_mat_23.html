@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마태복음 23장 주일학교 문항</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .question p {
+            color: #34495e;
+            font-size: 1.1em;
+            margin: 0 0 10px;
+        }
+        .toggle-label {
+            color: #2980b9;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 10px 0;
+        }
+        input {
+            padding: 8px;
+            width: 180px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+        .answer {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #e74c3c;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .answer.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .answer p {
+            color: #2c3e50;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>마태복음 23장 주일학교 문항</h1>
+
+    <!-- 문항 1 -->
+    <div class="question">
+        <p>1. 예수님께서 바리새인들이 하나님의 말씀을 가르치지만 자신들은 어떻게 한다고 하셨나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 23:2-3 "서기관들과 바리새인들이 모세의 자리에 앉았으니... 저희의 하는 ___는 본받지 말라"</p>
+        <input type="text" id="input1" oninput="checkAnswer(1)">
+        <div id="answer1" class="answer">
+            <p>- "바리새인들은 하나님의 말씀을 가르쳤지만 자신들은 따르지 않았어요."</p>
+            <p>- "우리는 하나님의 말씀을 듣고 그대로 실천하는 진실한 신앙을 가져야 해요."</p>
+        </div>
+    </div>
+
+    <!-- 문항 2 -->
+    <div class="question">
+        <p>2. 예수님께서 하나님 나라에서 큰 자가 되려면 어떻게 해야 한다고 말씀하셨나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 23:12 "누구든지 자기를 높이는 자는 ___지고 자기를 낮추는 자는 높아지리라"</p>
+        <input type="text" id="input2" oninput="checkAnswer(2)">
+        <div id="answer2" class="answer">
+            <p>- "예수님은 자기를 낮추는 자가 하나님 나라에서 높아진다고 하셨어요."</p>
+            <p>- "우리는 교만하지 않고 겸손한 마음으로 하나님과 이웃을 섬겨야 해요."</p>
+        </div>
+    </div>
+
+    <!-- 문항 3 -->
+    <div class="question">
+        <p>3. 예수님께서 바리새인들이 누구에게 잘 보이기 위해 한다고 하셨나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 23:5 "저희 모든 일을 ___에게 보이고자 하여 하나니"</p>
+        <input type="text" id="input3" oninput="checkAnswer(3)">
+        <div id="answer3" class="answer">
+            <p>- "바리새인들은 사람들에게 잘 보이려고 신앙을 과시했어요."</p>
+            <p>- "우리는 하나님을 기쁘시게 하기 위해 진심으로 신앙생활을 해야 해요."</p>
+        </div>
+    </div>
+
+    <!-- 문항 4 -->
+    <div class="question">
+        <p>4. 예수님께서 바리새인들이 겉은 깨끗해 보이지만 속은 어떻다고 하셨나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 23:28 "너희가 겉으로는 의롭게 보이되 속으로는 ___과 불법이 가득하도다"</p>
+        <input type="text" id="input4" oninput="checkAnswer(4)">
+        <div id="answer4" class="answer">
+            <p>- "바리새인들은 겉은 의롭게 보였지만 속은 외식과 죄로 가득했어요."</p>
+            <p>- "우리는 겉과 속이 모두 하나님 앞에 깨끗한 신앙을 가져야 해요."</p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(questionNumber) {
+            const answers = {
+                1: ["행위"],
+                2: ["낮아"],
+                3: ["사람"],
+                4: ["외식"]
+            };
+            const input = document.getElementById(`input${questionNumber}`).value.trim();
+            const answerDiv = document.getElementById(`answer${questionNumber}`);
+            const correctAnswers = answers[questionNumber];
+
+            if (correctAnswers.some(answer => input.toLowerCase() === answer.toLowerCase())) {
+                answerDiv.classList.add("show");
+            } else {
+                answerDiv.classList.remove("show");
+            }
+        }
+    </script>
+</body>
+</html>
