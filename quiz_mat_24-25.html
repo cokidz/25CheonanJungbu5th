@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마태복음 24장과 25장 주일학교 문항</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .question p {
+            color: #34495e;
+            font-size: 1.1em;
+            margin: 0 0 10px;
+        }
+        .toggle-label {
+            color: #2980b9;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 10px 0;
+        }
+        input {
+            padding: 8px;
+            width: 180px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+        .answer {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #e74c3c;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .answer.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .answer p {
+            color: #2c3e50;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>마태복음 24장과 25장 주일학교 문항</h1>
+
+    <!-- 문항 1 (마태복음 24장) -->
+    <div class="question">
+        <p>1. 예수님께서 종말의 징조로 어떤 일들이 있을 것이라고 말씀하셨나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 24:7 "곳곳에 ___과 지진이 있으리니"</p>
+        <input type="text" id="input1" oninput="checkAnswer(1)">
+        <div id="answer1" class="answer">
+            <p>- "종말의 징조로 기근과 지진이 있을 것이라고 하셨어요."</p>
+            <p>- "우리는 이런 징조를 보며 주님의 재림을 준비하고 깨어 있어야 해요."</p>
+        </div>
+    </div>
+
+    <!-- 문항 2 (마태복음 24장) -->
+    <div class="question">
+        <p>2. 예수님께서 주의 재림을 준비하기 위해 어떻게 하라고 말씀하셨나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 24:42 "그러므로 항상 ___ 있으라. 너희 주가 어느 날에 오실지 너희가 알지 못함이니라"</p>
+        <input type="text" id="input2" oninput="checkAnswer(2)">
+        <div id="answer2" class="answer">
+            <p>- "재림을 준비하기 위해 깨어 있으라고 하셨어요."</p>
+            <p>- "우리는 언제 올지 모르는 주님의 재림을 위해 항상 영적으로 깨어 기도해야 해요."</p>
+        </div>
+    </div>
+
+    <!-- 문항 3 (마태복음 24장) -->
+    <div class="question">
+        <p>3. 예수님께서 어떤 종이 복이 있다고 말씀하셨나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 24:45 "___ 되고 지혜 있는 종이 되어 주인에게 그 집 사람들을 맡아 때를 따라 양식을 나눠 줄 자가 누구냐"</p>
+        <input type="text" id="input3" oninput="checkAnswer(3)">
+        <div id="answer3" class="answer">
+            <p>- "충성되고 지혜 있는 종이 복이 있다고 하셨어요."</p>
+            <p>- "우리는 주님께 맡겨진 일에 충성하여 재림 때 상을 받을 수 있도록 노력해야 해요."</p>
+        </div>
+    </div>
+
+    <!-- 문항 4 (마태복음 25장) -->
+    <div class="question">
+        <p>4. 예수님의 비유에서 미련한 처녀들이 준비하지 않은 것은 무엇인가요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 25:3 "미련한 자들은 등을 가지되 ___을 가지지 아니하고"</p>
+        <input type="text" id="input4" oninput="checkAnswer(4)">
+        <div id="answer4" class="answer">
+            <p>- "미련한 처녀들은 기름을 준비하지 않았어요."</p>
+            <p>- "우리는 주님의 재림을 위해 영적인 준비를 미리 해야 해요."</p>
+        </div>
+    </div>
+
+    <!-- 문항 5 (마태복음 25장) -->
+    <div class="question">
+        <p>5. 예수님의 달란트 비유에서 주인이 착한 종에게 뭐라고 말씀하셨나요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 25:21 "잘하였도다 착하고 ___ 종아 네가 적은 일에 충성하였으매"</p>
+        <input type="text" id="input5" oninput="checkAnswer(5)">
+        <div id="answer5" class="answer">
+            <p>- "착하고 충성된 종이라고 칭찬하셨어요."</p>
+            <p>- "우리는 하나님께 받은 은사를 잘 활용하여 충성해야 해요."</p>
+        </div>
+    </div>
+
+    <!-- 문항 6 (마태복음 25장) -->
+    <div class="question">
+        <p>6. 예수님께서 양과 염소 비유에서 의인들이 행한 선한 일은 무엇인가요?</p>
+        <p class="toggle-label">예시 답변 보기: 마태복음 25:35 "내가 ___ 때에 너희가 먹을 것을 주었고 목마르매 너희가 마시게 하였고"</p>
+        <input type="text" id="input6" oninput="checkAnswer(6)">
+        <div id="answer6" class="answer">
+            <p>- "주린 자에게 먹을 것을 주고 목마른 자에게 마시게 했어요."</p>
+            <p>- "우리는 어려운 이웃을 사랑으로 섬겨 하나님 나라에 들어갈 준비를 해야 해요."</p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(questionNumber) {
+            const answers = {
+                1: ["기근","굶주림"],
+                2: ["깨어"],
+                3: ["충성"],
+                4: ["기름"],
+                5: ["충성된"],
+                6: ["주릴"]
+            };
+            const input = document.getElementById(`input${questionNumber}`).value.trim();
+            const answerDiv = document.getElementById(`answer${questionNumber}`);
+            const correctAnswers = answers[questionNumber];
+
+            if (correctAnswers.some(answer => input.toLowerCase() === answer.toLowerCase())) {
+                answerDiv.classList.add("show");
+            } else {
+                answerDiv.classList.remove("show");
+            }
+        }
+    </script>
+</body>
+</html>
