@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방 탈출 게임</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        #game-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #start-button {
+            font-size: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #start-button:hover {
+            background-color: #45a049;
+        }
+        #timer {
+            font-size: 24px;
+            color: red;
+            margin: 10px 0;
+        }
+        #hearts {
+            font-size: 24px;
+            color: #ff69b4;
+            margin: 10px 0;
+        }
+        #question {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        #answer-input {
+            font-size: 16px;
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+        }
+        #submit-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #submit-button:hover {
+            background-color: #0b7dda;
+        }
+        #message {
+            font-size: 20px;
+            margin-top: 20px;
+            color: green;
+        }
+        .hidden {
+            display: none;
+        }
+        #restart-button {
+            font-size: 20px;
+            padding: 10px 20px;
+            background-color: #FF9800;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        #restart-button:hover {
+            background-color: #f57c00;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>방 탈출 게임</h1>
+        <button id="start-button">시작</button>
+        <div id="game-elements" class="hidden">
+            <div id="timer">남은 시간: 10:00</div>
+            <div id="hearts">하트: ❤️❤️❤️❤️❤️</div>
+            <div id="question"></div>
+            <input type="text" id="answer-input" placeholder="정답 입력">
+            <button id="submit-button">제출</button>
+            <div id="message"></div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { text: "예수님은 ㅁ", answer: "62410" },
+            { text: "ㅁㅁㅁ의 형상대로 사람을 창조하시되", answer: "14152152245" },
+            { text: "나와 아버지는 ㅁㅁ이니라", answer: "1415215" }
+        ];
+
+        const successMessage = '"마태복음 5장 14절 - 너희는 세상의 빛이라. 산위에 있는 동네가 숨기우지 못할 것이요"';
+
+        let currentQuestionIndex = 0;
+        let hearts = 5;
+        let timeLeft = 600; // 10 minutes in seconds
+        let timerInterval;
+
+        const startButton = document.getElementById('start-button');
+        const gameElements = document.getElementById('game-elements');
+        const timerDisplay = document.getElementById('timer');
+        const heartsDisplay = document.getElementById('hearts');
+        const questionDisplay = document.getElementById('question');
+        const answerInput = document.getElementById('answer-input');
+        const submitButton = document.getElementById('submit-button');
+        const messageDisplay = document.getElementById('message');
+
+        startButton.addEventListener('click', startGame);
+
+        function startGame() {
+            startButton.classList.add('hidden');
+            gameElements.classList.remove('hidden');
+            resetGameVariables();
+            showQuestion();
+            startTimer();
+        }
+
+        function resetGameVariables() {
+            currentQuestionIndex = 0;
+            hearts = 5;
+            timeLeft = 600;
+            updateHeartsDisplay();
+            updateTimerDisplay();
+            messageDisplay.textContent = '';
+            if (document.getElementById('restart-button')) {
+                document.getElementById('restart-button').remove();
+            }
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval); // Clear any existing timer
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    endGame(false);
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerDisplay.textContent = `남은 시간: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+
+        function showQuestion() {
+            if (currentQuestionIndex < questions.length) {
+                questionDisplay.textContent = questions[currentQuestionIndex].text;
+                answerInput.value = '';
+                messageDisplay.textContent = '';
+            } else {
+                endGame(true);
+            }
+        }
+
+        submitButton.addEventListener('click', checkAnswer);
+
+        function checkAnswer() {
+            const userAnswer = answerInput.value.trim();
+            const correctAnswer = questions[currentQuestionIndex].answer;
+
+            if (userAnswer === correctAnswer) {
+                currentQuestionIndex++;
+                showQuestion();
+            } else {
+                hearts--;
+                updateHeartsDisplay();
+                if (hearts <= 0) {
+                    endGame(false);
+                } else {
+                    messageDisplay.textContent = '틀렸습니다! 하트가 하나 줄었습니다.';
+                    messageDisplay.style.color = 'red';
+                }
+            }
+        }
+
+        function updateHeartsDisplay() {
+            heartsDisplay.textContent = '하트: ' + '❤️'.repeat(hearts);
+        }
+
+        function endGame(success) {
+            clearInterval(timerInterval);
+            // Hide input and submit button
+            answerInput.classList.add('hidden');
+            submitButton.classList.add('hidden');
+            questionDisplay.textContent = '';
+            timerDisplay.textContent = '';
+            heartsDisplay.textContent = '';
+
+            if (success) {
+                messageDisplay.textContent = '축하합니다! 동료들에게 방 탈출 암호를 전달하세요!! \n' + successMessage;
+                messageDisplay.style.color = 'green';
+                addRestartButton();
+            } else {
+                messageDisplay.textContent = '미션 실패!';
+                messageDisplay.style.color = 'red';
+                addRestartButton();
+            }
+        }
+
+        function addRestartButton() {
+            const restartButton = document.createElement('button');
+            restartButton.id = 'restart-button';
+            restartButton.textContent = '다시하기';
+            restartButton.addEventListener('click', restartGame);
+            gameElements.appendChild(restartButton);
+        }
+
+        function restartGame() {
+            // Reset and restart
+            answerInput.classList.remove('hidden');
+            submitButton.classList.remove('hidden');
+            startGame();
+        }
+    </script>
+</body>
+</html>
