@@ -107,7 +107,7 @@
             { text: "나와 아버지는 ______이니라", answer: ["1415215","999000"] }
         ];
 
-        const successMessage = '"마태복음 5장 14절 \n - 너희는 세상의 빛이라. 산위에 있는 동네가 숨기우지 못할 것이요"';
+        const successMessage = '"마태복음 5장 14절 - <br> 너희는 세상의 빛이라. <br> 산위에 있는 동네가 숨기우지 못할 것이요"';
 
         let currentQuestionIndex = 0;
         let hearts = 5;
@@ -206,7 +206,7 @@
             heartsDisplay.textContent = '';
 
             if (success) {
-                messageDisplay.innerHTML = '축하합니다! 동료들에게 방 탈출 암호를 전달하세요!! <br><br>' +successMessage;
+                messageDisplay.innerHTML = '축하합니다! <br> 동료들이 다 같이 외쳐 방을 탈출할 수 있도록 탈출 암호를 전달하세요!! <br><br>' +successMessage;
                 messageDisplay.style.color = 'green';
                 addRestartButton();
             } else {
