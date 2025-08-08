@@ -176,9 +176,8 @@
 
         function checkAnswer() {
             const userAnswer = answerInput.value.trim();
-            const correctAnswer = questions[currentQuestionIndex].answer;
-
-            if (userAnswer === correctAnswer) {
+            const correctAnswers = questions[currentQuestionIndex].answer;  // 배열로 변경
+            if (correctAnswers.includes(userAnswer)) {  // includes()로 배열 내 포함 여부 확인
                 currentQuestionIndex++;
                 showQuestion();
             } else {
